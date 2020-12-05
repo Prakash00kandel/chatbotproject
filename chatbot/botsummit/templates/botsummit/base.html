@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Summit College - Chatbot</title>
+    <link rel="stylesheet" href="{% static '/botsummit/style.css'%}">
+    <link rel="shortcut icon" href="{% static '/botsummit/logo.png'%}" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <a href="#default" class="logo"><img src="{% static '/botsummit/logo.png'%}" alt="New Summit College" class="logo-img"></a>
+        <h2>NEW SUMMIT COLLEGE</h2>
+        <div class="header-right">
+          <a class="active" href="#home">HOME</a>
+          <a href="#contact">ABOUT US</a>
+          <a href="#academics">ACADEMICS</a>
+          <a href="#features">FEATURES & FACILITIES</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#contact">CONTACT</a>
+          <a href="#search"></a>
+        </div>
+      </div>
+    #form
+    <form action="{% url 'botsummit:chatbot' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="chatbox" id="chatbox">
+            <div class="chatbox-head">
+                Chat Box
+                <button class="chatbox-size" id="close">⨉</button>
+            </div>
+            <div class="chatbox-foot">
+                <input type="text" name="msg" id="msg" placeholder="Send a message..." autocomplete="off">
+                <button id="btn" type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+    <button class="btn-chatbot" id="open"></button>
+    <script>
+        const x = document.getElementById('chatbox');
+        const y = document.getElementById('open');
+        const z = document.getElementById('close');
+
+        z.onclick = function () {
+            if(x.style.display === "block"){
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        y.onclick = function () {
+            x.style.display = "block";
+        }
+    </script>
+</body>
+</html>
