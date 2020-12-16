@@ -78,7 +78,7 @@ model = tflearn.DNN(net)
 #     model.load("model.tflearn")
 #
 # except:
-model.fit(training, output, n_epoch=2000, batch_size=9, show_metric=True)
+model.fit(training, output, n_epoch=500, batch_size=9, show_metric=True)
 model.save("model.tflearn")
 
 
@@ -103,12 +103,15 @@ def chat(get_message):
     """
     global responses
     print("Start talking with the bot (type quit to stop)!")
-    inp = input(get_message)
+    print("get message = = = = ",get_message)
+    print("get message #########",type(get_message))
+
+    inp = get_message
     print('input executed',inp)
 
-    while True:
         # print('inp',inp)
         # print('inp type',type(inp))
+    for inp in inp:
         if inp.lower() == "quit":
             break
 
@@ -124,9 +127,5 @@ def chat(get_message):
         # print(random.choice(responses))
 
         best_choice = random.choice(responses)
-        # print("best choices", best_choice)
+    return best_choice
 
-    # return best_choice
-
-a=chat('how are you')
-print(a)
