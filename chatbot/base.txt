@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Summit College - Chatbot</title>
+    <link rel="stylesheet" href="{% static '/botsummit/style.css'%}">
+    <link rel="shortcut icon" href="{% static '/botsummit/logo.png'%}" type="image/x-icon">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="#default" class="logo"><img src="{% static '/botsummit/logo.png'%}" alt="New Summit College" class="logo-img"></a>
+        <h2>NEW SUMMIT COLLEGE</h2>
+        <div class="header-right">
+          <a class="active" href="#home">HOME</a>
+          <a href="#contact">ABOUT US</a>
+          <a href="#academics">ACADEMICS</a>
+          <a href="#features">FEATURES & FACILITIES</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#contact">CONTACT</a>
+          <a href="#search"></a>
+        </div>
+      </div>
+    <form action="#" method="POST" id="post-form">
+        {% csrf_token %}
+
+        <div class="chatbox" id="chatbox">
+            <div class="chatbox-head">
+                Chat Box
+                <button class="chatbox-size" id="close">⨉</button>
+            </div>
+            {% if get_message %}
+                <p id="message_input" class="bg-primary" style="width: 30%;background-color: blue;margin: 7px 5px;height: 25px;color: white;padding-left: 14px;">
+                    {{get_message}}</p>
+            {% endif %}
+            {% if reply_messages %}
+            <p id="message-reply" class="bg-primary" style="width: 30%;background-color: blue;margin: 7px;height: 25px;color: white;margin-left: 285px;padding-left: 14px;">
+                {{reply_messages}}</p>
+            {% endif %}
+            <div class="chatbox-foot">
+
+                <input type="text" name="msg" id="msg" placeholder="Send a message..." autocomplete="off">
+                <button id="btn" type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+    <button class="btn-chatbot" id="open"></button>
+    <script>
+        const x = document.getElementById('chatbox');
+        const y = document.getElementById('open');
+        const z = document.getElementById('close');
+
+        z.onclick = function () {
+            if(x.style.display === "block"){
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        y.onclick = function () {
+            x.style.display = "block";
+        }
+
+        //displaying input message
+        // function showMessage(){
+        //     var message = document.getElementById("msg").value;
+        //     message_input.innerHTML= message;
+
+        // }
+        // Submit post on submit
+        console.log("jellelel")
+        $('#post-form').on('submit', function(event){
+            console.log("hello")
+            event.preventDefault();
+            console.log("form submitted!")  // sanity check
+            create_post();
+            console.log("form submittedddd")
+        });
+
+        // AJAX for posting
+        function create_post() {
+            console.log("create post is working!") // sanity check
+            var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+            $.ajax({
+                url : "chat/", // the endpoint
+                type : "POST", // http method
+                headers:{
+                    "X-CSRFToken": csrftoken
+                },
+                data : { the_post : $('#message_input').val() 
+                
+                }, // data sent with the post request
+                
+                // handle a successful response
+            
+                success : function(json) {
+                    console.log("this is javascript")
+                    $('#message_input').val(''); // remove the value from the input
+                    console.log('json'); // log the returned json to the console
+                },
+
+                // handle a non-successful response
+                 // handle a non-successful response
+                error : function(xhr,errmsg,err) {
+                    console.log('shshshshsh')
+                    $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                        " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                    console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                }
+            });
+        };
+
+    </script>
+</body>
+</html>

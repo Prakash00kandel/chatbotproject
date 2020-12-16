@@ -24,7 +24,6 @@
           <a href="#search"></a>
         </div>
       </div>
-    #form
     <form action="{% url 'botsummit:chatbot' %}" method="POST">
         {% csrf_token %}
 
@@ -33,7 +32,16 @@
                 Chat Box
                 <button class="chatbox-size" id="close">⨉</button>
             </div>
+            {% if get_message %}
+                <p id="message_input" class="bg-primary" style="width: 30%;background-color: blue;margin: 7px 5px;height: 55px;color: white;padding-left: 14px;">
+                    {{get_message}}</p>
+            {% endif %}
+            {% if reply_messages %}
+            <p id="message-reply" class="bg-primary" style="width: 30%;background-color: blue;margin: 7px;height: 55px;color: white;margin-left: 285px;padding-left: 14px;">
+                {{reply_messages}}</p>
+            {% endif %}
             <div class="chatbox-foot">
+
                 <input type="text" name="msg" id="msg" placeholder="Send a message..." autocomplete="off">
                 <button id="btn" type="submit">Send</button>
             </div>
@@ -55,6 +63,13 @@
 
         y.onclick = function () {
             x.style.display = "block";
+        }
+
+        // displaying input message
+        function showMessage(){
+            var message = document.getElementById("msg").value;
+            message_input.innerHTML= message;
+
         }
     </script>
 </body>
