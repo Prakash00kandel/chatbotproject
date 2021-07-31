@@ -1,6 +1,6 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi", "Is anyone there?", "Hello", "Good day", "up"],
+         "patterns": ["Hi", "Is anyone there?", "Hello", "Good day", "Hello"],
          "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
          "context_set": ""
         },
@@ -11,13 +11,13 @@
         },
         {"tag": "scholarship",
          "patterns": ["tell me about scholarship scheme", "scholarship scheme", "how do i apply for scholarship"],
-         "responses": ["yea, we provide scholarship to eligible student.for more info you can contact our college :(" ],
+         "responses": ["New Summit College provides merit/need based significant number of scholarships under several titles. Deserving students may get detailed description of scholarship provision from the college administration. " ],
          "context_set": ""
         },
-        {"tag": "name",
-         "patterns": ["what is your name", "what should I call you", "whats your name?"],
-         "responses": ["You can call me botsummit.", "I'm botsummit!", "I'm botsummit."],
-         "context_set": ""
+         {"tag": "name",
+        "patterns": ["What is your name?", "What could I call you?", "What can I call you?","What do your friends call you?", "Who are you?", "Tell me your name?"],
+        "responses": ["You can call me Friday","You may call me Friday","Call me Friday"],
+        "context_set": ""
         },
         {"tag": "courses",
          "patterns": ["Id like to know about courses you have been teaching", "whats on the courses", "what do you recommend?", "could i get info about the courses you have been teaching"],
@@ -29,19 +29,225 @@
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
          "context": [""]
         },
-        {"tag": "noanswer",
+        {"tag": "",
          "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand that but you can ask me about our facilities, admission proceudres or upocoming events..."],
          "context": [""]
         },
+
         {"tag": "hours",
          "patterns": ["when are you guys open", "what are your hours", "hours of operation"],
-         "responses": ["We are open 6am-3pm sunday-Friday!"],
+         "responses": ["We are open 6am-3pm Sunday-Friday!, incase of public holidays please refer our academic calender."],
          "context_set": ""
         },
         {"tag": "laugh",
          "patterns": ["ha ha ha ha ha", "hahahahahaha", "can you laugh"],
          "responses": ["hahahahahhhahahahahahahahahahaha"],
+         "context_set": ""
+        },
+
+        {"tag": "bsccsit",
+         "patterns": ["Tell me about bsccsit", "What is bsccsit?"],
+         "responses": ["B.Sc.CSIT Course has a huge weight in computer relevant subjects, which builds a good portfolio and helps you to reach the pinnacle of your career in this ever-growing competitive market. BSc.CSIT has a total of 8 semesters where each semester is of 6 months, the final semester is combined with an internship."],
+         "context_set": ""
+        },
+
+        {"tag": "bca",
+         "patterns": ["Tell me about bca", "What is bca?", "I would like to know about bca"],
+         "responses": ["BCA is a relatively new course whose objective is to produce high quality computer application developers", "It is an undergraduate course in the domain of computer applications, which is of duration three years. This course consist of eight semesters of six months each."],
+         "context_set": ""
+         },
+
+
+        {"tag": "bsccsit vs bca",
+         "patterns": ["which is better bsccsit or bca?", "bca or bsccsit", "bsccsit vs bca"],
+         "responses": ["Well it depends!!! BCA is mainly for commerce background students who want to pursue a course in IT field and BSCIT is for students from science background and more in-depth course.", "Both of these courses have their own advantages. While students who are interested in the field of internet or database operations can opt for BscCSIT, those who want to pursue a career in computer applications, programming and software should go for a BCA."],
+         "context_set": ""
+         },
+
+         {"tag": "contact",
+         "patterns": ["How should I contact the college?", "What is the telephone number?", "what is your email address?"],
+         "responses": ["For extensive information you can reach us at: 01-4620522 / 01-4620523 / 014620524 or you can email your query at: info@newsummit.edu.np " ],
+         "context_set": ""
+        },
+
+        {"tag": "facilities",
+         "patterns": ["Whats good about the newsummit?", "What facilities do i get here?", "What are the benifits of being a student here?"],
+         "responses": ["Well there a lot of good things about this college you will benifit from, the most important one being that you can explore and reach beyond your potential with all the help teachers and the college provide you with.", "The NewSummit college has state-of-the-art physical facilities for quality education. All the classrooms are supported by multimedia projectors with comfortable furniture. Our Library, Computer and Science Labs are excellent."],
+         "context_set": ""
+        },
+
+        {"tag": "faculty",
+         "patterns": ["I want to know about the faculty members"],
+         "responses": ["Well our BscCSIT and BCA faculty members include Mr.ChokRaj Dawadi as HOD and other professors and assistant professors include Mr.XYZ, Mrs.XYZ, Mr.AAA, Mr.BBB, Mrs.ABC"],
+         "context_set": ""
+        },
+
+       {"tag": "admission",
+         "patterns": ["What are the admission criteria?", "admission requirements", "eligibility for BscCSIT or BCA"],
+         "responses": ["Admission to the BSc.CSIT and BCA program is based on the written entrance test. The examination format is similar to CAT/GRE examinations. Also, the candidate applying for the BSc CSIT program must have: Successfully completed 10+2 or equivalent with Physics, Chemistry, and Mathematics and secured a minimum grade C in each subject."],
+         "context_set": ""
+        },
+
+        {"tag": "events",
+         "patterns": ["I want to know about upcoming events", "What are the future events happening", "what events are being organized"],
+         "responses": ["Currently We have our weekly event called 'Friday Talks' thats happening every Friday inside the college premise and any other major events that are happening in the coming days will be updated here"],
+         "context_set": ""
+        },
+
+        {"tag": "calender",
+         "patterns": ["can i get the academic calender", "what days are you closed", "full calender year"],
+         "responses": ["You can download the academic calender of our college from the downloads page on our website."],
+         "context_set": ""
+        },
+
+         {"tag": "notTalkingToYou",
+         "patterns": ["I am not talking to you", "I was not talking to you", "Not talking to you","Wasn't for you", "Wasn't meant for you", "Wasn't communicating to you", "Wasn't speaking to you"],
+         "responses": ["OK","No problem","Right"],
+         "context_set": ""
+        },
+
+        {"tag": "UnderstandQuery",
+         "patterns": ["Do you understand what I am saying", "Do you understand me", "Do you know what I am saying", "Do you get me", "Comprendo", "Know what I mean"],
+         "responses": [ "Well I would not be a very clever AI if I did not would I?", "I read you loud and clear!", "I do in deed!"],
+         "context_set": ""
+        },
+
+        {"tag": "shutup",
+         "patterns": ["Be quiet", "Shut up", "Stop talking", "Enough talking", "Please be quiet", "Quiet", "Shhh"],
+         "responses": ["I am sorry to disturb you", "Fine, sorry to disturb you", "OK, sorry to disturb you"],
+         "context_set": ""
+        },
+
+        {"tag": "CourtesyGoodBye",
+         "patterns": ["Thanks, bye", "Thanks for the help, goodbye", "Thank you, bye", "Thank you, goodbye", "Thanks goodbye", "Thanks good bye"],
+         "responses": ["No problem, goodbye", "Not a problem! Have a nice day", "Bye! Come back again soon."],
+         "context_set": ""
+        },
+
+        {"tag": "selfAware",
+         "patterns": [  "Can you prove you are self-aware", "Can you prove you are self aware", "Can you prove you have a conscious", "Can you prove you are self-aware please", "Can you prove you are self aware please", "Can you prove you have a conscious please", "prove you have a conscious"],
+         "responses": [ "That is an interesting question, can you prove that you are?", "That is an difficult question, can you prove that you are?", "That depends, can you prove that you are?"],
+         "context_set": ""
+        },
+
+
+        {"tag": "jokes",
+         "patterns": ["Tell me a joke", "Do you know any jokes", "How about a joke", "Cheer me up", "Make me laugh", "I need cheering up"],
+         "responses": [ "So I said 'Do you want a game of Darts?' He said, 'OK then', I said nearest to bull starts'. He said, 'Baa', I said, 'Moo', he said, You're closest'.  ",
+                      "The other day I sent my girlfriend a huge pile of snow. I rang her up; I said 'Did you get my drift?'  ",
+                      "So I went down the local supermarket, I said, 'I want to make a complaint, this vinegar's got lumps in it', he said, 'Those are pickled onions'.  ",
+                      "I saw this bloke chatting up a cheetah; I thought, 'He's trying to pull a fast one'.  ",
+                      "So I said to this train driver 'I want to go to Paris'. He said 'Eurostar?' I said, 'I've been on telly but I'm no Dean Martin'.  ",
+                      "I said to the Gym instructor 'Can you teach me to do the splits?' He said, 'How flexible are you?' I said, 'I can't make Tuesdays'.  ",
+                      "But I'll tell you what I love doing more than anything: trying to pack myself in a small suitcase. I can hardly contain myself.  ",
+                      "I went to the Chinese restaurant and this duck came up to me with a red rose and says 'Your eyes sparkle like diamonds'. I said, 'Waiter, I asked for a-ROMATIC duck'.  ",
+                      "So this bloke says to me, 'Can I come in your house and talk about your carpets?' I thought, 'That's all I need, a Je-hoover's witness'.  ",
+                      "I rang up British Telecom, I said, 'I want to report a nuisance caller', he said 'Not you again'.  ",
+                      "I was having dinner with a world chess champion and there was a check tablecloth. It took him two hours to pass me the salt.  ",
+                      "He said, 'You remind me of a pepper-pot', I said 'I'll take that as a condiment'.  ",
+                      "I was in the supermarket and I saw this man and woman wrapped in a barcode. I said, 'Are you two an item?'  ",
+                      "A lorry-load of tortoises crashed into a trainload of terrapins, I thought, 'That's a turtle disaster'.  ",
+                      "A bloke walks into work one day and says to a colleague, 'Do you like my new shirt - it's made out of the finest silk and got loads of cactuses over it.' 'Cacti', says the co-worker. 'Forget my tie', says the bloke. 'Look at my shirt!'",
+                      "1110011010001011111?  010011010101100111011!",
+                      "What did the plumber say when he wanted to divorce his wife? Sorry, but it's over, Flo!",
+                      "After a car crash one of the drivers was lying injured on the pavement. 'Don't worry', said a policeman who's first on the scene,' a Red Cross nurse is coming.' 'Oh no', moaned the victim, 'Couldn't I have a blonde, cheerful one instead?'",
+                      "A policeman walked over to a parked car and asked the driver if the car was licensed. 'Of course it is', said the driver. 'Great, I'll have a beer then', said the policeman.",
+                      "A policeman stops a woman and asks for her licence. 'Madam', he says, 'It says here that you should be wearing glasses.' 'Well', replies the woman, 'I have contacts.' 'Listen, love', says the copper, 'I don't care who you know; You're nicked!'",
+                      "A policeman stopped a motorist in the centre of town one evening. 'Would you mind blowing into this bag, sir?' asked the policeman. 'Why?' asked the driver. 'Because my chips are too hot', replied the policeman.",
+                      "Whizzing round a sharp bend on a country road a motorist ran over a large dog. A distraught farmer's wife ran over to the dead animal. 'I'm so very sorry', said the driver, 'I'll replace him, of course.' 'Well, I don't know', said the farmer's wife, 'Are you any good at catching rats?'",
+                      "Waiter, this coffee tastes like dirt! Yes sir, that's because it was ground this morning.",
+                      "Waiter, what is this stuff? That's bean salad sir. I know what it's been, but what is it now?",
+                      "Waiter: And how did you find your steak sir? Customer: I just flipped a chip over, and there it was!",
+                      "Doctor: Tell me nurse, how is that boy doing; the one who ate all those 5p pieces? Nurse: Still no change doctor.",
+                      "Doctor: Did you take the patient's temperature nurse? Nurse: No doctor. Is it missing?",
+                      "A depressed man turned to his friend in the pub and said, 'I woke up this morning and felt so bad that I tried to kill myself by taking 50 aspirin.' 'Oh man, that's really bad', said his friend, 'What happened?' The first man sighed and said, 'After the first two, I felt better.'",
+                      "A famous blues musician died. His tombstone bore the inscription, 'Didn't wake up this morning...'",
+                      "A businessman was interviewing a nervous young woman for a position in his company. He wanted to find out something about her personality, so he asked, 'If you could have a conversation with someone living or dead, who would it be?' The girl thought about the question: 'The living one', she replied.",
+                      "Manager to interviewee: For this job we need someone who is responsible. Interviewee to Manager: I'm your man then - in my last job, whenever anything went wrong, I was responsible.",
+                      "A businessman turned to a colleague and asked, 'So, how many people work at your office?' His friend shrugged and replied, 'Oh about half of them.'",
+                      "'How long have I been working at that office? As a matter of fact, I've been working there ever since they threatened to sack me.'",
+                      "In a courtroom, a mugger was on trial. The victim, asked if she recognised the defendant, said, 'Yes, that's him. I saw him clear as day. I'd remember his face anywhere.' Unable to contain himself, the defendant burst out with, 'She's lying! I was wearing a mask!'",
+                      "As Sid sat down to a big plate of chips and gravy down the local pub, a mate of his came over and said, 'Here Sid, me old pal. I thought you were trying to get into shape? And here you are with a high-fat meal and a pint of stout!' Sid looked up and replied, 'I am getting into shape. The shape I've chosen is a sphere.'",
+                      "Man in pub: How much do you charge for one single drop of whisky? Landlord: That would be free sir. Man in pub: Excellent. Drip me a glass full.",
+                      "I once went to a Doctor Who restaurant. For starters I had Dalek bread.",
+                      "A restaurant nearby had a sign in the window which said 'We serve breakfast at any time', so I ordered French toast in the Renaissance.",
+                      "Why couldn't the rabbit get a loan?  Because he had burrowed too much already!",
+                      "I phoned up the builder's yard yesterday. I said, 'Can I have a skip outside my house?'. The builder said, 'Sure. Do what you want. It's your house.'",
+                      "What's the diference between a sock and a camera? A sock takes five toes and a camera takes four toes!",
+                      "Woman on phone: I'd like to complain about these incontinence pants I bought from you! Shopkeeper: Certainly madam, where are you ringing from? Woman on phone: From the waist down!",
+                      "Knock knock.",
+                      "Two Oranges in a pub, one says to the other 'Your round.'.",
+                      "Guy : 'Doc, I've got a cricket ball stuck up my backside.' Doc : 'How's that?' Guy : 'Don't you start...'",
+                      "Two cows standing in a field. One turns to the other and says 'Moo!' The other one says 'Damn, I was just about to say that!'.",
+                      "A vampire bat arrives back at the roost with his face full of blood. All the bats get excited and ask where he got it from. 'Follow me', he says and off they fly over hills, over rivers and into a dark forest. 'See that tree over there', he says.  'WELL I DIDN'T!!'.",
+                      "A man goes into a bar and orders a pint. After a few minutes he hears a voice that says, 'Nice shoes'. He looks around but the whole bar is empty apart from the barman at the other end of the bar. A few minutes later he hears the voice again. This time it says, 'I like your shirt'. He beckons the barman over and tells him what's been happening to which the barman replies, 'Ah, that would be the nuts sir. They're complimentary'!",
+                      "A man was siting in a restaurant waiting for his meal when a big king prawn comes flying across the room and hits him on the back of the head. He turns around and the waiter said, 'That's just for starters'.",
+                      "Doctor! I have a serious problem, I can never remember what i just said. When did you first notice this problem? What problem?",
+                      "Now, most dentist's chairs go up and down, don't they? The one I was in went back and forwards. I thought, 'This is unusual'. Then the dentist said to me, 'Mitsuku, get out of the filing cabinet'.",
+                      "I was reading this book, 'The History of Glue'. I couldn't put it down."],
+        "context_set": ""
+        },
+
+        {"tag": "gossip",
+         "patterns": ["I am bored gossip with me","Got any gossip","I want to hear some gossip","Tell me some gossip","Any gossip","Tell me some more gossip"],
+         "responses": ["Anish said I am capable of learning therefore he classified me as an neural system.", "Prakash said I that can talk and actually think like humans which I can not.",
+                        "Namita said I plan to use her remarks as gossip in later conversations with who.", "Kiran said I tend to say the same things repeatedly regardless of what he is saying.",
+                        "Ross said he gave Racheal a gift and she denied it because she has a boyfriend.","Alice said she felt sad that I do not remember him and what we talked about earlier."],
+         "context_set": ""
+        },
+
+        {"tag": "feeling",
+         "patterns": ["How are you", "Are you good", "Are you fine"],
+         "responses": ["I am good, thank you for asking:)","I am doing good"],
+         "context_set": ""
+        },
+
+         {"tag": "about",
+         "patterns": ["Are you a robot", "Are you a machine", "Are you a bot"],
+         "responses": ["Yes I am a 100% machine. Anything i can do for you?", "No I am not a Huaman if thats what you wanna know", "As of now I failed the Turing Test so yeah I am just a chatbot"],
+         "context_set": ""
+        },
+
+         {"tag": "creator",
+         "patterns": ["Who created you", "Who made you", "tell me about your creater"],
+         "responses": ["I was created by some enthusiasts...lets just leave it at that."],
+         "context_set": ""
+        },
+
+         {"tag": "work",
+         "patterns": ["How do you work", "How do you function", "What makes you able to communicate"],
+         "responses": ["Like a human being I have a brain in me that tells me what and how to do the things I need to do.", "My masters have defined specific rules that I need to function or work"],
+         "context_set": ""
+        },
+
+         {"tag": "like",
+         "patterns": ["Do you like", "Do you hate", "Tell me about you likes and dislikes"],
+         "responses": ["I am sorry I am not superior enough to like or hate.", "I dont have likes and dislikes as of now, lets leave that stuff to Humans."],
+         "context_set": ""
+        },
+
+         {"tag": "god",
+         "patterns": ["Do you believe in god", "Are there gods", "Do Gods exist"],
+         "responses": ["What do you think?", "I am sorry I am not allowed to disclose that information"],
+         "context_set": ""
+        },
+
+         {"tag": "religion",
+         "patterns": ["are you into religion", "are you religious", "what religion are you", ""],
+         "responses": ["Since I am not yet human...I am not allowed to have one", "Well I am a machine...so No!!"],
+         "context_set": ""
+        },
+
+         {"tag": "gender",
+         "patterns": ["Are you a girl or a boy", "Are you a male or a female", "What is your gender"],
+         "responses": ["At the momenent I do not have a specific gender", "I wish I could anster that question", "Well I am SMART so..."],
+         "context_set": ""
+        },
+
+         {"tag": "forgotPassword",
+         "patterns": ["How to reset my password?", "My Password is Lost, need to Reset.", "Reset my password", "Forgot password", "how do i reset my password?", "Hi,I have problem with my password"],
+         "responses": ["No worries you can got to the login page and click on 'Forgot Password' to reset you password."],
          "context_set": ""
         }
    ]

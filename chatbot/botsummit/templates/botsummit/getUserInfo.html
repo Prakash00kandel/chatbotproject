@@ -1,0 +1,14 @@
+{% extends 'botsummit/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block chatbox %}
+    <div class="userinfo_form">
+
+      <h4>Please add your information to continue.</h4>
+
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+{% endblock %}

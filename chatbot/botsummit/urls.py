@@ -1,11 +1,12 @@
 from django.urls import path
 
-from . import views
+from .views import index, ChatbotView, form
 
-app_name ="botsummit"
+app_name = "botsummit"
 
 urlpatterns = [
-    path('', views.index),
-    path('chat/', views.ChatbotView, name="chatbot"),
+    path('', index),
+    path('user_info', form, name='form'),
+    path('chat', ChatbotView, name="chatbot"),
 
 ]

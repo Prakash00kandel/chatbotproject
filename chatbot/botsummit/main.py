@@ -9,7 +9,7 @@ from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 from tensorflow.python.framework import ops
 
-with open(r"C:\Users\Prakash\python3.8\pycharmprojects\pythonProject\intents.json",'r') as file:
+with open(r"C:\Users\Prakash\python3.8\pycharmprojects\pythonProject\intents.json", 'r') as file:
     data = json.load(file)
 
 try:
@@ -67,8 +67,8 @@ except:
 ops.reset_default_graph()
 
 net = tflearn.input_data(shape=[None, len(training[0])])
-net = tflearn.fully_connected(net, 9)
-net = tflearn.fully_connected(net, 9)
+net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
@@ -78,7 +78,7 @@ model = tflearn.DNN(net)
 #     model.load("model.tflearn")
 #
 # except:
-model.fit(training, output, n_epoch=2000, batch_size=9, show_metric=True)
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 model.save("model.tflearn")
 
 
@@ -96,6 +96,45 @@ def bag_of_words(s, words):
     return numpy.array(bag)
 
 
+# def chat(get_message):
+#     """
+#
+#     :rtype: object
+#     """
+#
+#     # global responses
+#     # best_choice = ''
+#     # print("Start talking with the bot (type quit to stop)!")
+#     # print("get message = = = = ",get_message)
+#     # print("get message #########",type(get_message))
+#
+#     inp = get_message
+#     print('input executed', inp)
+#
+#     # print('inp',inp)
+#     # print('inp type',type(inp))
+#     for inp in inp:
+#         # if inp.lower() == "quit":
+#         #     break
+#
+#         results = model.predict([bag_of_words(inp, words)])
+#         results_index = numpy.argmax(results)
+#         # print(results_index)
+#         # print(labels)
+#         tag = labels[results_index]
+#         # print(tag)
+#
+#         for tg in data["intents"]:
+#             if tg['tag'] == tag:
+#                 responses = tg['responses']
+#                 print(responses)
+#             # else:
+#             #     responses = ['Sorry! did not get that!', '?? Please try again',
+#             #                  'I am just a computer program! Please try to keep it simple.']
+#
+#         best_choice = random.choice(responses)
+#     return best_choice
+
 def chat(get_message):
     """
 
@@ -103,10 +142,9 @@ def chat(get_message):
     """
     global responses
     print("Start talking with the bot (type quit to stop)!")
-    inp = input(get_message)
+    inp = get_message
     print('input executed',inp)
-
-    while True:
+    while True or False :
         # print('inp',inp)
         # print('inp type',type(inp))
         if inp.lower() == "quit":
@@ -124,9 +162,8 @@ def chat(get_message):
         # print(random.choice(responses))
 
         best_choice = random.choice(responses)
-        # print("best choices", best_choice)
+        print("best choices", best_choice)
+        break
+    return best_choice
 
-    # return best_choice
 
-a=chat('how are you')
-print(a)
